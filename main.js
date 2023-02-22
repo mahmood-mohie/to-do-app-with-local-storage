@@ -1,6 +1,7 @@
 let input = document.querySelector(".input");
 let submit = document.querySelector(".form .add");
 let tasksDiv = document.querySelector(".tasks")
+let clear = document.querySelector(".deleteAll")
 
 // create an empty array to add added tasks to it
 let arrayOFTasks = []
@@ -13,20 +14,16 @@ if (window.localStorage.getItem("tasks")) {
 // trigger get data form local storage
 getDataFromLocalStorage()
 
-
-// click on Add task
-submit.addEventListener("click", main)
-submit.addEventListener("keyup", main)
-// 
 // main function to add tasks to page and local storage
 // function that happen when events happen
-function main() {
-    if (input.value !== "") {
-        addTaskToArray(input.value);
-
-        input.value = "";
+submit.addEventListener("click", (event) => {
+    if (input.value != "") {
+        addTaskToArray(input.value)
+       input.value = ""
+    } else {
+        event.preventDefault()
     }
-}
+})
 
 // click on task element
 tasksDiv.addEventListener("click", (e) => {
@@ -46,7 +43,13 @@ tasksDiv.addEventListener("click", (e) => {
     }
     
 })
-
+clear.addEventListener("click" , (e) => {
+    //remove all tasks in div task
+    tasksDiv.innerHTML = ""
+    //remove all tasks from local storage
+    clearDataFromLocalSorage()
+})
+// add tasks to array 
 function addTaskToArray(textTask) {
     // task data
     const task = {
@@ -110,4 +113,9 @@ function toggleStatusTaskWith(taskId) {
         }
     }
     addDataToLocalStorageFrom(arrayOFTasks);
+}
+
+function clearDataFromLocalSorage() {
+    window.localStorage.removeItem("tasks")
+    arrayOfTasks = []
 }
