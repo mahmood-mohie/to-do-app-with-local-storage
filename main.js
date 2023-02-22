@@ -48,6 +48,7 @@ clear.addEventListener("click" , (e) => {
     tasksDiv.innerHTML = ""
     //remove all tasks from local storage
     clearDataFromLocalSorage()
+    window.location.reload()
 })
 // add tasks to array 
 function addTaskToArray(textTask) {
