@@ -2,4 +2,4 @@
 To-Do App for writing your tasks
 ### Links
 
-- Live Site URL: [Add live site URL here](https://mahmood-mohie.github.io/to-do-app-with-local-storage/)
+- Live Site URL: [live APP URL here](https://mahmood-mohie.github.io/to-do-app-with-local-storage/)
